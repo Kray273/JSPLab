@@ -42,16 +42,17 @@
 	} 
 	
 	//SQL 구문 객체 작성
-	String sql = "CREATE TABLE student INTO test";
+	String sql = "CREATE TABLE student";
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	
+	pstmt.
 	//SQL 구문 실행
 	//pstmt.execute(); 넘어가서 자료를 받아옴.
 	try{
 		pstmt.executeUpdate();//성공여부만 받아옴.
-		out.print("데이터베이스 생성 성공!!<br>");	
+		out.print("테이블 생성 성공!!<br>");	
 	} catch(SQLException e){
-		out.print("데이터베이스 생성 실패ㅠㅠ<br>");
+		out.print("테이블 생성 실패ㅠㅠ<br>");
 		out.print(e.getMessage()+"<br>");
 	}
 	
