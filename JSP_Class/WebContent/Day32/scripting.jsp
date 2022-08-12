@@ -23,6 +23,7 @@
 	%>
 
 	<%= //표현문 Expression_매서드를 호출하여 그 결과를 문자열 형태로 출력
+		// 표현문은 ;를 쓰지 않음!
 		makeItLower("Helo world")
 	%>
 </body>
