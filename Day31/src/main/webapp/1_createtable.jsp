@@ -29,6 +29,7 @@
 			+ "dept		varchar(10),"
 			+ "addr		varchar(50),"
 			+ "primary key(hakbun))";
+	
 	pstmt = conn.prepareStatement(sql);
 	
 // 5.SQL Execute

@@ -7,6 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%!
+		int pageCount = 0;
+		
+		void addCount(){
+			pageCount++;
+		}
+		%>
+	
+	<%
+		addCount();
+	%>
+
+	<p>이 사이트에 <%=pageCount%>번쨰 방문하셨습니다.<p>
 
 </body>
 </html>

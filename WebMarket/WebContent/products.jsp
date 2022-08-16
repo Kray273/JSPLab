@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ page import="java.util.*" %>
-
+<%@ page import="java.time.*" %>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>WebMarket</title>
+<title>Products</title>
 
 
 </head>
@@ -14,27 +14,31 @@
 <%@ include file = "header.jsp" %>
 	
 
-	<%! String greeting = "Welcome to Web shopping Mall"; %>
-	<%! String tagline = "Welcome to web Market!"; %>
-
 	<div class="alert alert-secondary" role="alert">
 	<div class="container">
 		<h1 class = "display-3">
-			<%= greeting %>
+			제품목록
 		</h1>
 	</div>	
 	</div>
 	
-	<div class = "container">
-	<div class = "text-center">
-		<h3><%= tagline %></h3>
+	<div class ="container">
+	<div class ="row" align="center">
+	<%
+	//상품 목록 출력 for
+	%>
+	
+	<div class ="col-md-4">
+		<h3><%=제품명%></h3>
+		<p><%=제품소개%></p>
+		<p><%=제품가격%></p>
+	</div>
+	
+	<%
+	//for 닫기
+	%>
 	</div>
 	</div>
-	
-	
-	
-	
-	
 	
 <%@ include file = "footer.jsp" %>	
 
