@@ -1,6 +1,9 @@
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.time.LocalTime"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.time.*" %>
+
 
 <footer class="navbar navbar-expand-lg bg-light">
 	<div class = "container">
@@ -17,10 +20,10 @@
 
             int s = t.getSecond();
 			%>
-			<p>CurrentDateTime: <%=now%></p>
+			<%-- <p>CurrentDateTime: <%=now%></p>
 			<p>CurrentTime: <%=t%></p>
-			<p>CurrentDate: <%=d%></p>
-			<p>CurrentMake: <%= h%> : <%=m%> : <%= s%></p>
+			<p>CurrentDate: <%=d%></p> --%>
+			<p>CurrentTimeMake: <%= h%> : <%=m%> : <%= s%></p>
 		</div>
 	</div>
 </footer>

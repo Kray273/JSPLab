@@ -75,6 +75,6 @@
 
 	
 <%@ include file = "../footer.jsp" %>
-
+<!-- import 충돌로 인한 오류로 풋터에 더 디테일하게 기능을 임폴트해야함. -->
 </body>
 </html>
