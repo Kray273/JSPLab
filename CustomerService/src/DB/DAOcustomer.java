@@ -65,6 +65,7 @@ public class DAOcustomer {
 		stmt = conn.prepareStatement(sql);
 		rs = stmt.executeQuery();
 		
+		//여러데이터를 뽑을떄 배열을 이용하요 한번에 출력
 		ArrayList<DTOcustomer> members = new ArrayList<DTOcustomer>();
 		while(rs.next()) {
 			members.add(new DTOcustomer(rs.getString(1),
@@ -87,6 +88,8 @@ public class DAOcustomer {
 		stmt = conn.prepareStatement(sql);
 			stmt.setString(1, no);
 		rs = stmt.executeQuery();
+		
+		//1개의 데이터를 뽑아낼 때 객체만을 이용해 출력
 		
 		rs.next();
 		
