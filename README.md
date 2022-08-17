@@ -8,3 +8,5 @@ Day31 https://www.notion.so/Day31-25e0fff957d945fa89f2efa1ac2b0470
 Day32 https://www.notion.so/Day32-7f4a807255604ad48f7b5e51ac1b0608
 
 Day33 https://www.notion.so/Day33-096ce71c38524723b3a8a48a588adde6
+
+Day34 https://www.notion.so/Day34-b53ead860c3a402ab276329dd49b15a9
