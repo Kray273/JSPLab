@@ -1,33 +1,16 @@
 package DB;
 
+import java.awt.Image;
 import java.sql.*;
 import java.util.ArrayList;
 
 import javax.naming.NamingException;
+import javax.swing.text.AbstractDocument.Content;
 
 import util.ConnectionPool;
 
 public class DAOboard {
 
-	public static int join(String title, String memo) throws NamingException, SQLException {
-		
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		
-		String sql = "INSERT INTO board (title, memo) VALUES(?,?)";
-		//Connection Pool 이용
-		conn= ConnectionPool.get();
-		
-		stmt = conn.prepareStatement(sql);
-			stmt.setString(1, title);
-			stmt.setString(2, memo);		
-			
-		int result = stmt.executeUpdate();
-		// 결과가 1 과 2로 넘어 온다. 
-		
-		return result;
-	}
-	
 	public static int boardinsert(String title, String content, String iname) throws NamingException, SQLException {
 		
 		Connection conn = null;
@@ -43,6 +26,7 @@ public class DAOboard {
 			stmt.setString(3, iname);	
 			
 		int result = stmt.executeUpdate();
+		// 결과가 1 과 2로 넘어 온다. 
 		
 		return result;
 	}
@@ -68,7 +52,6 @@ public class DAOboard {
 		}
 		return lists;
 	}
-	
 	public static DTOboard fileDetail(String bid) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;

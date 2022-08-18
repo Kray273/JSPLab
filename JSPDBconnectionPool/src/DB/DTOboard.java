@@ -7,7 +7,6 @@ public class DTOboard {
 	private String content;
 	private String iname;
 	private String bdate;
-	
 	public String getBid() {
 		return bid;
 	}
@@ -47,5 +46,7 @@ public class DTOboard {
 		this.iname = iname;
 		this.bdate = bdate;
 	}
+	
+	
 	
 }
