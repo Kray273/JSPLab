@@ -17,6 +17,7 @@
 <%-- <p>CurrentDateTime: <%=now%></p>
 			<p>CurrentTime: <%=t%></p>
 			<p>CurrentDate: <%=d%></p> --%>
+<br><br><br><br><br>						
 <footer>
 	<nav class="navbar navbar-dark p-0 bg-warning fixed-bottom">
 	<div class="container-fluid">

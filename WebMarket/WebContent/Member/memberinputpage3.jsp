@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Member_INPUT2</title>
+<title>Member_INPUT3</title>
 
 
 </head>
@@ -15,12 +15,12 @@
 
 <div class="alert alert-secondary" role="alert">
 <div class="container">
-	<h1 class = "display-3">Member2</h1>
+	<h1 class = "display-3">Member3</h1>
 </div>	
 </div>
 
 <div class="container">
-<form action="memberinput2.jsp" method="post">
+<form action="memberinput3.jsp" method="post" enctype="multipart/form-data">
 
 	<div class="form-group row">
 		<label class="col-sm-2">Name</label>
@@ -37,12 +37,26 @@
 	</div>
 	
 	<div class="form-group row">
+		<label class="col-sm-2" for="inputGroupFile02">Upload</label>
+		 <div class="col-sm-3">
+		 	<input type="file" name="image" class="form-control " id="inputGroupFile02">
+		 </div>
+	</div>
+
+	<div class="form-group row">
 		<div class="col-sm-offset-2 col-sm-10">
 			<input type="submit" class="btn btn-primary" value="등록">
 			<input type="reset" class="btn btn-danger" value="취소" onclick="reset()">
 		</div>	
 	</div>
-
+	
+	
+	<br>
+	<div class="d-grid gap-2 col-6 mx-auto">
+		<a href="memberlist.jsp" class="btn btn-outline-secondary" role="button">목록보기</a>
+	</div>
+	
+	<br>
 </form>
 </div>
 

@@ -7,7 +7,6 @@ public class DTOboard {
 	private String content;
 	private String iname;
 	private String bdate;
-	
 	public String getBid() {
 		return bid;
 	}
@@ -38,7 +37,6 @@ public class DTOboard {
 	public void setBdate(String bdate) {
 		this.bdate = bdate;
 	}
-	
 	public DTOboard(String bid, String title, String content, String iname, String bdate) {
 		super();
 		this.bid = bid;
@@ -47,5 +45,6 @@ public class DTOboard {
 		this.iname = iname;
 		this.bdate = bdate;
 	}
+	
 	
 }
