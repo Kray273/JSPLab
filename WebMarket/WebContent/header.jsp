@@ -61,8 +61,11 @@
         <!-- <form role="search">
           <input class="form-control" type="search" placeholder="Search" aria-label="Search">
         </form> -->
-	 <%--  <%
+	 <%-- <%
 	    String mname = (String)session.getAttribute("mname");
+	    if (mname == null) {
+		
+		}
 		boolean login = true;
 		if (login) { 
 			out.print("<span class='text-white'>님 로그인 상태입니다.</span>");
