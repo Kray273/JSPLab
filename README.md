@@ -12,3 +12,7 @@ Day33 https://www.notion.so/Day33-096ce71c38524723b3a8a48a588adde6
 Day34 https://www.notion.so/Day34-b53ead860c3a402ab276329dd49b15a9
 
 Day35 https://www.notion.so/Day35-097c031ca77a408cb532d20ad96c85cd
+
+Day36 https://www.notion.so/Day36-7a6d076843194a43bab3e5a1fbbbce2f
+
+Day37 https://www.notion.so/Day37-be9128ddb6534c1f9c4fe01e27b5c34f
