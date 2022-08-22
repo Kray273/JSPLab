@@ -13,7 +13,6 @@
 	
 	out.print("세션 설정 완료");
 %>
-
 <p><a href="Session_check.jsp">세션 확인</a></p>
 </body>
 </html>

@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ page import="java.util.*" %>
-<%@page import="DB.DTOmember2"%>
-<%@page import="DB.DAOmember2"%>
+<%@page import="DB.*"%>
+
 
 
 

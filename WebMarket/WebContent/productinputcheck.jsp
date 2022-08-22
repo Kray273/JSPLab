@@ -68,6 +68,6 @@
 	
 	DAOproduct.insert(pid,pname,pprice,pdesc,iname1,iname2,iname3);
 	
-	response.sendRedirect("Iist.jsp");	
+	response.sendRedirect("Productlist.jsp");	
 	
 %>

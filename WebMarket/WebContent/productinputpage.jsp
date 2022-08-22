@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<%@ page import="java.util.*" %>
 
+<%@ page import="java.util.*" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,19 +16,19 @@
   <script src="${pageContext.request.contextPath}/resource/summernote/JS/summernote-lite.js"></script>
   <script src="${pageContext.request.contextPath}/resource/summernote/JS/lang/summernote-ko-KR.js"></script>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/summernote/CSS/summernote/summernote-lite.css">
-  
- </head>
+ 
+</head>
 <body>
-<%@ include file = "../header.jsp" %>
-
+<%@ include file = "header.jsp" %>
+	
 <div class="alert alert-secondary" role="alert">
 <div class="container">
-	<h1 class = "display-3">Product</h1>
+	<h1 class = "display-3">ProductInput</h1>
 </div>	
 </div>
 
 <div class="container">
-<form action="Inputcheck.jsp" method="post" enctype="multipart/form-data">
+<form action="productinputcheck.jsp" method="post" enctype="multipart/form-data">
 
 	<div class="form-group row">
 		<label class="col-sm-2">제품ID</label>
@@ -106,7 +106,7 @@
 </form>
 </div>
 
-	
-<%@ include file = "../footer.jsp" %>	
+<%@ include file = "footer.jsp" %>	
+
 </body>
 </html>
