@@ -56,20 +56,41 @@ public class DAOmember {
 		return 2; //비번이 틀릴때
 	}
 	
-	public static ArrayList<DTOproduct> getList() throws NamingException, SQLException{
+	public static int kakaologin(String mname) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null; 
 		
-		String sql = "SELECT * FROM product";
+		int result = 0;
+		
+		String sql = "SELECT mname, memail FROM member WHERE mname=?";
+		conn= ConnectionPool.get();
+		stmt = conn.prepareStatement(sql);
+			stmt.setString(1, mname);
+			
+		rs = stmt.executeQuery();
+		
+		if(!rs.next()) {
+			return 3;
+		} //비회원
+		
+		return 1; //임시 
+	}
+	
+	public static ArrayList<DTOmember> getList() throws NamingException, SQLException{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null; 
+		
+		String sql = "SELECT * FROM member";
 	
 		conn= ConnectionPool.get();
 		stmt = conn.prepareStatement(sql);
 		rs = stmt.executeQuery();
 		
-		ArrayList<DTOproduct> lists = new ArrayList<DTOproduct>();
+		ArrayList<DTOmember> lists = new ArrayList<DTOmember>();
 		while(rs.next()) {
-			lists.add(new DTOproduct(rs.getString(1),
+			lists.add(new DTOmember(rs.getString(1),
 									rs.getString(2),
 									rs.getString(3),
 									rs.getString(4),
@@ -77,38 +98,88 @@ public class DAOmember {
 									rs.getString(6),
 									rs.getString(7),
 									rs.getString(8),
-									rs.getString(9)));
+									rs.getString(9),
+									rs.getString(10)));
 		}
 		return lists;
 	}
 	
-	public static DTOproduct fileDetail(String pno) throws NamingException, SQLException {
+	public static DTOmember memberDetail(String mname) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null; 
 		
-		String sql = "SELECT * FROM product WHERE pno=? ";
+		String sql = "SELECT * FROM member WHERE mname=? ";
 		conn= ConnectionPool.get();
 		stmt = conn.prepareStatement(sql);
-			stmt.setString(1, pno);	
+			stmt.setString(1, mname);	
 		rs = stmt.executeQuery();
 		
 		rs.next();
 		
-		pno = rs.getString(1);
-		String pid = rs.getString(2);
-		String pname = rs.getString(3);
-		String pprice = rs.getString(4);
-		String pdesc = rs.getString(5);
-		String iname1 = rs.getString(6);
-		String iname2 = rs.getString(7);
-		String iname3 = rs.getString(8);
-		String pdate = rs.getString(9);
+		String mno = rs.getString(1);
+		mname = rs.getString(2);
+		String mpass = rs.getString(3);
+		String mtel = rs.getString(4);
+		String memail = rs.getString(5);
+		String mgender = rs.getString(6);
+		String maddr = rs.getString(7);
+		String mlevel = rs.getString(8);
+		String iname = rs.getString(9);
+		String mdate = rs.getString(10);
 		
 		
-		DTOproduct list = new DTOproduct(pno,pid,pname,pprice,pdesc,iname1,iname2,iname3,pdate);
+		DTOmember list = new DTOmember(mno,mname,mpass,mtel,memail,mgender,maddr,mlevel,iname,mdate);
 		
 		return list;
 	}
-
+	
+	public static DTOmember Detail(String mno) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null; 
+		
+		String sql = "SELECT * FROM member WHERE mno=? ";
+		conn= ConnectionPool.get();
+		stmt = conn.prepareStatement(sql);
+			stmt.setString(1, mno);	
+		rs = stmt.executeQuery();
+		
+		rs.next();
+		
+		mno = rs.getString(1);
+		String mname = rs.getString(2);
+		String mpass = rs.getString(3);
+		String mtel = rs.getString(4);
+		String memail = rs.getString(5);
+		String mgender = rs.getString(6);
+		String maddr = rs.getString(7);
+		String mlevel = rs.getString(8);
+		String iname = rs.getString(9);
+		String mdate = rs.getString(10);
+		
+		
+		DTOmember list = new DTOmember(mno,mname,mpass,mtel,memail,mgender,maddr,mlevel,iname,mdate);
+		
+		return list;
+	}
+	
+	public static int memberout(String mname, String mpass) throws NamingException, SQLException  {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		int result = 0;
+		
+		String sql = "DELETE FROM member WHERE (mname=?) and (mpass=?) ";
+		
+		conn= ConnectionPool.get();
+		
+		stmt = conn.prepareStatement(sql);
+			stmt.setString(1, mname);
+			stmt.setString(2, mpass);			
+			
+		result = stmt.executeUpdate();
+		// 결과가 성공1 과 실패 0으로 넘어 온다. 
+		
+		return result;	
+	}
 }

@@ -4,17 +4,7 @@
 <%@ page import="java.util.*" %>
 <%@page import="DB.*"%>
 
-<%
-	String mname = (String)session.getAttribute("mname");
-
-	if (mname == null) {
-		out.println("<script>alert('로그인이 필요합니다.');</script>");
-		out.println("<script>location.href='login.jsp'</script>");
-	}
-	
-	boolean login = true;
-	
-%>    
+   
 
 <html>
 <head>
@@ -24,14 +14,14 @@
 </head>
 <body>
 <%@ include file = "header.jsp" %>
-
 <%
-	if (login) {
-		out.print(mname + "님 로그인 상태입니다.");
-	}else {
-		out.print("방문을 환영합니다. 로그인 하세요.");
+	mname = (String)session.getAttribute("mname");
+
+	if (mname == null) {
+		out.println("<script>alert('로그인이 필요합니다.');</script>");
+		out.println("<script>location.href='login.jsp'</script>");
 	}
-%>
+%> 
         
 <div class="alert alert-secondary" role="alert">
 	<div class="container">

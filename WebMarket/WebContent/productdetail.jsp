@@ -1,17 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%
-	String mname = (String)session.getAttribute("mname");
-
-	if (mname == null) {
-		out.println("<script>alert('로그인이 필요합니다.');</script>");
-		out.println("<script>location.href='login.jsp'</script>");
-	}
-	
-	boolean login = true;
-	
-%> 
 
 <!DOCTYPE html>
 <%@ page import = "DB.*" %>
@@ -23,12 +12,13 @@
 <body>
 <%@ include file = "header.jsp" %>
 <%
-	if (login) {
-		out.print(mname + "님 로그인 상태입니다.");
-	}else {
-		out.print("방문을 환영합니다. 로그인 하세요.");
+	mname = (String)session.getAttribute("mname");
+
+	if (mname == null) {
+		out.println("<script>alert('로그인이 필요합니다.');</script>");
+		out.println("<script>location.href='login.jsp'</script>");
 	}
-%>
+%> 
 
 <div class="alert alert-secondary" role="alert">
 <div class="container">
@@ -39,7 +29,7 @@
 <%	
 	String no = request.getParameter("no");
 	DTOproduct list = DAOproduct.fileDetail(no);
-
+	
 	String img1 = list.getIname1();
 	String imgstr1 = "";
 	String img2 = list.getIname2();
@@ -56,6 +46,7 @@
 		imgstr3 ="images/" + img3;
 	} 
 %>
+
 
  <div class="container ">
  <div class="w-50 h-50">
@@ -86,6 +77,15 @@
 	  </button>
 	</div> 
 	</div>
+	</div>
+	
+	 <br>
+	<div class="d-grid gap-2 col-6 mx-auto">
+		<a href="deliverypage.jsp?pno=<%=list.getPno()%>&pname=<%=list.getPname()%>&pprice=<%=list.getPprice()%>" class="btn btn-outline-danger" role="button">구매</a>
+	</div>
+	
+	<div class="d-grid gap-2 col-6 mx-auto">
+		<a href="Productlist.jsp" class="btn btn-outline-secondary" role="button">목록보기</a>
 	</div>
 
 

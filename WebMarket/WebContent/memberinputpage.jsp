@@ -11,9 +11,7 @@
 
 </head>
 <body>
-<%@ include file = "../header.jsp" %>
-
-
+<%@ include file = "header.jsp" %>
 
 <div class="alert alert-secondary" role="alert">
 <div class="container">
@@ -36,7 +34,7 @@
             
             <div class="col-12">
               <label for="Name"  class="form-label">비밀번호</label>
-              <input type="text" name="mpass" class="form-control" id="firstName" placeholder="" value="" required>
+              <input type="password" name="mpass" class="form-control" id="firstName" placeholder="" value="" required>
               <div class="invalid-feedback">
                 Valid password is required.
               </div>
@@ -59,16 +57,16 @@
             </div>
             
             <div class="col-12">
-              <label for="country" class="form-label">Gender</label>
-              <div class="form-check">
-				  <input class="form-check-input" name="mgender" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-				  <label class="form-check-label" for="flexRadioDefault1">
+              <label for="country" class="form-label">Gender</label><br>
+               <div class="form-check form-check-inline">
+				  <input class="form-check-input" name="mgender" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="m" checked>
+				  <label class="form-check-label" for="inlineRadio1">
 				    Male
 				  </label>
 				</div>
-				<div class="form-check">
-				  <input class="form-check-input" name="mgender"  type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
-				  <label class="form-check-label" for="flexRadioDefault2">
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" name="mgender"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="fm"  >
+				  <label class="form-check-label" for="inlineRadio2">
 				    Female
 				  </label>
 				</div>
@@ -102,7 +100,7 @@
   </main>
 </div>	
 	
-<%@ include file = "../footer.jsp" %>	
+<%@ include file = "footer.jsp" %>	
 
 </body>
 </html>

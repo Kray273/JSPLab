@@ -47,11 +47,40 @@
         </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
     
-    <img src="http://papaspick.com/web/upload/2019_web/icon/kakao_login.jpg" width="305px" height="55px">
-    <p class="mt-1 mb-3 text-muted">&copy; 2017–2022</p>
+	    <a id="custom-login-btn" href="javascript:kakaoLogin()">
+	  <img src="img/kakao_login.png" width="305"  height="55" alt="카카오 로그인 버튼">	</a>
   </form>
+  	<form action="memberinputpage.jsp">
+    <button class="w-100 btn btn-lg btn-warning" type="submit">회원가입</button>
+    </form>
+    <p class="mt-1 mb-3 text-muted">&copy; 2022–2022</p>
 </main>
 
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+// script
+// 발급 받은 키
+      Kakao.init("42860fa80259451dc82f6c30fbce9b2d");
+
+      function kakaoLogin() {
+        window.Kakao.Auth.login({
+          // 카카오 개발자 사이트의 동의항목에서 설정한 ID와 반드시 일치해야함
+          scope: 'profile_nickname, account_email,gender',
+          success: function (authObj) {
+                console.log(authObj);
+                window.Kakao.API.request({
+                url:'/v2/user/me',
+                success: res => {
+                    const kakaoAccount = res.kakao_account;
+					location.href='kakaocheck.jsp?mname=' + kakaoAccount.profile.nickname
+							+ '&memail=' + kakaoAccount.email
+							+ '&mgender=' + kakaoAccount.gender;
+					                }
+                });
+          }
+        });
+      }
+      </script>
 
 </div>
 

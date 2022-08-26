@@ -9,6 +9,8 @@
 <%
 	//세션 정보 삭제
 	session.removeAttribute("mname");
+	session.removeAttribute("mno");
+	session.removeAttribute("mlevel");
 
 		
 	out.println("<script>alert('로그아웃 하셨습니다.');</script>");

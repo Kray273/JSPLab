@@ -8,7 +8,7 @@ public class DTOmember {
 	private String mtel;
 	private String memail;
 	private String mgender;
-	private String madr;
+	private String maddr;
 	private String mlevel;
 	private String iname;
 	private String mdate;
@@ -48,11 +48,11 @@ public class DTOmember {
 	public void setMgender(String mgender) {
 		this.mgender = mgender;
 	}
-	public String getMadr() {
-		return madr;
+	public String getMaddr() {
+		return maddr;
 	}
-	public void setMadr(String madr) {
-		this.madr = madr;
+	public void setMaddr(String maddr) {
+		this.maddr = maddr;
 	}
 	public String getMlevel() {
 		return mlevel;
@@ -72,7 +72,7 @@ public class DTOmember {
 	public void setMdate(String mdate) {
 		this.mdate = mdate;
 	}
-	public DTOmember(String mno, String mname, String mpass, String mtel, String memail, String mgender, String madr,
+	public DTOmember(String mno, String mname, String mpass, String mtel, String memail, String mgender, String maddr,
 			String mlevel, String iname, String mdate) {
 		super();
 		this.mno = mno;
@@ -81,10 +81,11 @@ public class DTOmember {
 		this.mtel = mtel;
 		this.memail = memail;
 		this.mgender = mgender;
-		this.madr = madr;
+		this.maddr = maddr;
 		this.mlevel = mlevel;
 		this.iname = iname;
 		this.mdate = mdate;
 	}
+	
 	
 }

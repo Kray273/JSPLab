@@ -20,7 +20,14 @@
 </head>
 <body>
 <%@ include file = "header.jsp" %>
-	
+<%
+	mname = (String)session.getAttribute("mname");
+
+	if (mname == null) {
+		out.println("<script>alert('로그인이 필요합니다.');</script>");
+		out.println("<script>location.href='login.jsp'</script>");
+	}
+%> 
 <div class="alert alert-secondary" role="alert">
 <div class="container">
 	<h1 class = "display-3">ProductInput</h1>
