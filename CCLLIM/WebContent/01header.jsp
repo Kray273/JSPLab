@@ -118,7 +118,7 @@
 	        <a class="link-secondary" href="#" aria-label="Search">
 	          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
 	        </a>
-	        <%if (user_id != null) {%>
+	      <%--   <%if (user_id != null) {%> --%>
 		    
 		    <div class="btn-group" role="group">
 			    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -132,13 +132,13 @@
 			    </ul>
 			  </div>
 			  
-	         <%}%> 
+	        <%--  <%}%>  --%>
 	        
 	        <%
 		    if (user_id == null) {%>
-		    	<a class="btn btn-sm btn-outline-secondary" href="02login.jsp">Sign up</a>
+		    	<a class="btn btn-sm btn-outline-secondary" href="02signin.jsp">Sign up</a>
 			<%} else{ %>
-				<a class="btn btn-sm btn-outline-secondary" href="02logout.jsp">Sign out</a>
+				<a class="btn btn-sm btn-outline-secondary" href="02signout.jsp">Sign out</a>
 			<% }%>  
 	      </div> 
 	    </div>
@@ -155,7 +155,7 @@
       <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">We are</a>
+            <a class="nav-link active" aria-current="page" href="04intro.jsp">We are</a>
            
           </li>
     
@@ -178,10 +178,10 @@
             </ul>
           </li>
           
-         <%
+         <%-- <%
          if (level == null) {}
-         else if (level.equals("3")) {%>
-           <li class="nav-item dropdown">
+         else if (level.equals("3")) {%> --%>
+         <%--   <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">관리자</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">상담목록</a></li>
@@ -196,9 +196,9 @@
               <li><a class="dropdown-item" href="#">자제목록</a></li>
               <li><a class="dropdown-item" href="#">제품목록</a></li>
             </ul>
-          </li>
-          <%} 
-         else if (level.equals("1")) {%>
+          </li> --%>
+         <%--  <%} 
+         else if (level.equals("1")) {%> --%>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">관리자</a>
             <ul class="dropdown-menu">
@@ -208,7 +208,7 @@
               <li><a class="dropdown-item" href="#">제품목록</a></li>
             </ul>
           </li>
-          <%}%>
+       <%--    <%}%> --%>
           
           
         </ul>

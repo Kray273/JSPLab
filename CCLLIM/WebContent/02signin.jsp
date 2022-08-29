@@ -34,7 +34,7 @@ if (cookies != null) {
 <div class="container"  style="max-width: 330px">
 
 <main class="form-signin">
-  <form action="02logincheck.jsp">
+  <form action="02signincheck.jsp">
     <div class="form-floating">
       <input type="text" class="form-control" name="user_id" id="floatingInput" placeholder="ID">
       <label for="floatingInput">ID</label>
@@ -58,7 +58,7 @@ if (cookies != null) {
 	    <a id="custom-login-btn" href="javascript:kakaoLogin()">
 	  <img src="img/kakao_login.png" width="305"  height="55" alt="카카오 로그인 버튼">	</a>
   </form>
-  	<form action="02simplejoin.jsp">
+  	<form action="02singup.jsp">
   	<button class="w-100 btn btn-lg btn-secondary" type="submit">회원가입</button>
     </form>
     <p class="mt-1 mb-3 text-muted">&copy; 2022–2022</p>
@@ -80,7 +80,7 @@ if (cookies != null) {
                 url:'/v2/user/me',
                 success: res => {
                     const kakaoAccount = res.kakao_account;
-					location.href='kakaocheck.jsp?mname=' + kakaoAccount.profile.nickname;
+					location.href='kakaocheck.jsp?user_id=' + kakaoAccount.profile.nickname;
 					}
                 });
           }

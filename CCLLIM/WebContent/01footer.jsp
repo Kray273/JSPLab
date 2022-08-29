@@ -14,6 +14,7 @@
 					</p>
 					<p class="copy">&copy; ABKray. all rights reserved. <a href="#" target="_blank" alt="" title="">designed by <span class="">kray</span></a></p>
 			</div>
+			
 </footer>
 
 <!-- JavaScript Bundle with Popper -->
