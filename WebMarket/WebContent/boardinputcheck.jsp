@@ -13,9 +13,8 @@
 	String content = request.getParameter("content");
 	String author = (String)session.getAttribute("mname"); 
 	
-	DAOboard.boardinsert(title, content, author);
+	DAOborad.boardinsert(title, content, author);
 	
 	response.sendRedirect("boardlist.jsp");
-	
 %>
 

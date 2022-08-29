@@ -81,9 +81,9 @@
 </div>	
 </div>
 
-<%	
+<%
 	String no = request.getParameter("no");
-	DTOboard list = DAOboard.fileDetail(no);
+	DTOborad list = DAOborad.fileDetail(no);
 
 	String img = list.getIname();
 	String imgstr = "";

@@ -26,9 +26,9 @@
 </div>	
 </div>
 
-<%	
+<%
 	String no = request.getParameter("no");
-	DTOboard list = DAOboard.Detail(no);
+	DTOborad list = DAOborad.Detail(no);
 %>
 <div class="container">
 	<main>

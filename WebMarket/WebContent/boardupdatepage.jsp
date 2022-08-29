@@ -25,7 +25,7 @@
 <%@ include file = "header.jsp" %>
 <%
 	String no = request.getParameter("no");
-	DTOboard list = DAOboard.Detail(no);
+   DTOborad list = DAOborad.Detail(no);
 	mname = (String)session.getAttribute("mname");
 	if (!mname.equals(list.getAuthor())) {
 		out.println("<script>alert('게시물의 작성자가 아닙니다.');</script>");

@@ -11,7 +11,7 @@
 	String bid =request.getParameter("bid");
 	String content = request.getParameter("content"); 
 	
-	DAOboard.boardupdate(bid,title,content);
+	DAOborad.boardupdate(bid,title,content);
 %>
 
 <script>

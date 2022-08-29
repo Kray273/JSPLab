@@ -6,7 +6,7 @@
 <%@ page import="org.apache.commons.fileupload.servlet.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="util.*"%>
-<%@page import="DB.DAOboard"%>
+<%@page import="DB.DAOborad"%>
 
 
 <%
@@ -26,25 +26,24 @@
 		String name = item.getFieldName();
 		
 		if(item.isFormField()){
-			String value = item.getString("UTF-8");
-			if(name.equals("title")){
-				title = value;
-			} else if(name.equals("content")){
-				content = value;
-			}	
+	String value = item.getString("UTF-8");
+	if(name.equals("title")){
+		title = value;
+	} else if(name.equals("content")){
+		content = value;
+	}	
 		} else{
-			if(name.equals("image")){
-				iname = item.getName();
-				ifile = item.get();
-				
-				String root = application.getRealPath(java.io.File.separator);
-				FileUtil.saveImage(root,iname,ifile);		
-			}
+	if(name.equals("image")){
+		iname = item.getName();
+		ifile = item.get();
+		
+		String root = application.getRealPath(java.io.File.separator);
+		FileUtil.saveImage(root,iname,ifile);		
+	}
 		}
 	}
 	
-	DAOboard.boardinsert(title, content, iname);
+	DAOuser.boardinsert(title, content, iname);
 	
 	response.sendRedirect("boardlist.jsp");
-	
 %>

@@ -12,8 +12,8 @@
 
 <h3>파일목록</h3>
 <%
-	ArrayList<DTOboard> lists = DAOboard.getList();
-	for(DTOboard list : lists){
+	ArrayList<DTOborad> lists = DAOborad.getList();
+	for(DTOborad list : lists){
 %>
 
 	<%=list.getBid()%>	

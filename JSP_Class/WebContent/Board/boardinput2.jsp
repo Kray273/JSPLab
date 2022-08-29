@@ -8,5 +8,5 @@
 	String title = request.getParameter("title");
 	String memo = request.getParameter("memo");
 	
-	DAOboard.join(title, memo);
+	DAOborad.join(title, memo);
 %>

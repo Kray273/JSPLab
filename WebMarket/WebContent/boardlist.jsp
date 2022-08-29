@@ -39,9 +39,9 @@
 	  <tbody>
 	  	<%
 	  		int i=1;
-			ArrayList<DTOboard> lists = DAOboard.getList();
-			for(DTOboard list : lists){
-		%>
+	  		  		ArrayList<DTOborad> lists = DAOborad.getList();
+	  		  		for(DTOborad list : lists){
+	  	%>
 	    <tr>
 	      <th scope="row"><%=i%></th>
 	      <td><a href="boardDetail.jsp?no=<%=list.getBid()%>"><%=list.getTitle()%></a></td>
