@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CCLLIM_sing out</title>
+<title>CCLLIM</title>
 </head>
 <body>
 <%

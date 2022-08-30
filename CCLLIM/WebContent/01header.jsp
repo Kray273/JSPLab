@@ -136,7 +136,7 @@
 	        
 	        <%
 		    if (user_id == null) {%>
-		    	<a class="btn btn-sm btn-outline-secondary" href="02signin.jsp">Sign up</a>
+		    	<a class="btn btn-sm btn-outline-secondary" href="02signin.jsp">Sign in</a>
 			<%} else{ %>
 				<a class="btn btn-sm btn-outline-secondary" href="02signout.jsp">Sign out</a>
 			<% }%>  
@@ -172,9 +172,9 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Custom/Repair</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Custom</a></li>
-              <li><a class="dropdown-item" href="#">Repair</a></li>
-              <li><a class="dropdown-item" href="#">Making</a></li>
+              <li><a class="dropdown-item" href="06costom.jsp">Custom</a></li>
+              <li><a class="dropdown-item" href="06repair.jsp">Repair</a></li>
+              <li><a class="dropdown-item" href="06making.jsp">Making</a></li>
             </ul>
           </li>
           

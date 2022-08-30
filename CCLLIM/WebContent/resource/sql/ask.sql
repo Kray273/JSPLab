@@ -1,14 +1,14 @@
-CREATE TABLE `user` (
-	`user_id` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
-	`user_no` BIGINT(20) NOT NULL AUTO_INCREMENT,
-	`user_pw` VARCHAR(5000) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`user_tel` VARCHAR(5000) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`user_email` VARCHAR(5000) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`user_addr` VARCHAR(5000) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`user_level` VARCHAR(50) NOT NULL DEFAULT '5' COLLATE 'utf8_general_ci',
-	`user_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`user_id`) USING BTREE,
-	UNIQUE INDEX `user_no` (`user_no`) USING BTREE
+CREATE TABLE `ask` (
+	`ask_no` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`ask_title` VARCHAR(5000) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`user_id` VARCHAR(5000) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`made_content` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`ask_sol` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`ask_sing` VARCHAR(5000) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`ask_status` VARCHAR(500) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`ask_day` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+	`made_date` TIMESTAMP NULL DEFAULT NULL,
+	PRIMARY KEY (`ask_no`) USING BTREE
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB

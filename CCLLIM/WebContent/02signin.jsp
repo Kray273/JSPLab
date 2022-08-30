@@ -8,19 +8,6 @@
 </head>
 <body>
 
-<% 
-Cookie[] cookies = request.getCookies();
-
-if (cookies != null) {
-	for(int i = 0 ; i < cookies.length ; i++) {
-		String name = cookies[i].getName();
-		String value = cookies[i].getValue();
-	}
-} else {
-	out.print("설정된 쿠키가 없습니다.");
-}
-	%>
-
 
 <%@ include file="01header.jsp" %>
 
@@ -41,14 +28,14 @@ if (cookies != null) {
     </div>
     
     <div class="form-floating">
-      <input type="text" class="form-control" name="user_pass" id="floatingInput" placeholder="Password">
+      <input type="text" class="form-control" name="user_pw" id="floatingInput" placeholder="Password">
       <label for="floatingInput">Password</label>
     </div>
     
 <div class="d-flex justify-content-end">
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me" name="user_cookie"> 자동 로그인
+        <input type="checkbox" value="remember-me" name=""> 자동 로그인
       </label>
     </div>
         </div>

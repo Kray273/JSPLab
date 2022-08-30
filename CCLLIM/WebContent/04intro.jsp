@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CCLLIM_sing in</title>
+<title>CCLLIM</title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
 
 <div class="alert alert-secondary" role="alert">
  <div class="container">
-	<p class = "display-5">CCLLIM	is </p>
+	<p class = "display-5">CCLLIM	is  </p>
 </div>	
 </div>
 
@@ -63,6 +63,12 @@
   </div>
 
 <div id="map" style="width:100%;height:350px;"></div>
+
+<hr class="my-4">
+	<div class="d-grid gap-2 col-6 mx-auto">
+		<a href="01main.jsp" class="btn btn-outline-secondary" role="button">Main</a>
+	</div>
+	<br>
 </main>
 
 

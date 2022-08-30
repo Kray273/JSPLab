@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CCLLIM_sing in</title>
+<title>CCLLIM</title>
 </head>
 <body>
 
@@ -21,19 +21,20 @@
 <div class="container">
   <main>
       <div class="col-md-7 col-lg-8"> 
-      <form action="02singupcheck.jsp" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+      <form action="02singupcheck.jsp" method="post" >
           <div class="row g-3">
+          
             <div class="col-12">
-              <label for="Name"  class="form-label">회원이름</label>
-              <input type="text" name="user_id" class="form-control" id="firstName" placeholder="" value="" required>
+              <label for="Name"  class="form-label">ID</label>
+              <input type="text" name="user_id" class="form-control" id="firstName" placeholder="" required>
               <div class="invalid-feedback">
-                Valid Your name is required.
+                Valid Your ID is required.
               </div>
             </div>
             
             <div class="col-12">
-              <label for="Name"  class="form-label">비밀번호</label>
-              <input type="password" name="user_pass" class="form-control" id="firstName" placeholder="" value="" required>
+              <label for="Name"  class="form-label">password</label>
+              <input type="password" name="user_pw" class="form-control" id="firstName" placeholder="" required>
               <div class="invalid-feedback">
                 Valid password is required.
               </div>
@@ -41,7 +42,7 @@
             
             <div class="col-12">
               <label for="Name"  class="form-label">전화번호</label>
-              <input type="text" name="user_tel" class="form-control" id="firstName" placeholder="010-0000-0000" value="" required>
+              <input type="text" name="user_tel" class="form-control" id="firstName" placeholder="010-0000-0000" required>
               <div class="invalid-feedback">
                 Valid Your digit is required.
               </div>

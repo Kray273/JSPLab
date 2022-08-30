@@ -6,6 +6,10 @@ public class FileUtil {
 	
 	public static void saveImage(String root, String iname, byte[] ifile) throws IOException {
 		
+		if(iname.equals("")){
+			return;
+		}
+		
 		root += "/images"; //어디든 위치를 잡기위해
 		File f = new File(root);
 		
