@@ -31,7 +31,7 @@
 	      <th scope="col">Level</th>
 	      <th scope="col">Date</th>
 	      <th scope="col">Consult</th>
-	      <th scope="col">Detail</th>
+	      <th scope="col">Edit</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -48,8 +48,8 @@
 	      <td><%=list.getUser_addr() %></td>
 	      <td><%=list.getUser_level() %></td>
 	      <td><%=list.getUser_date() %></td>
-	      <td><a href="membersdetail.jsp?no=<%=list.getUser_id()%>">Check</a></td>
-	      <td><a href="membersdetail.jsp?no=<%=list.getUser_id()%>">Edit</a></td>
+	      <td><a href="08userconsult.jsp?no=<%=list.getUser_id()%>">Check</a></td>
+	      <td><a href="08useredit.jsp?no=<%=list.getUser_id()%>">Edit</a></td>
 	       </tr>
 		<%		
 			}

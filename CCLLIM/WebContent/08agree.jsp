@@ -1,3 +1,4 @@
+<%@page import="DB.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,30 +24,56 @@
 
 <div class="alert alert-secondary" role="alert">
  <div class="container">
-	<p class = "display-5">Custom register </p>
+	<p class = "display-5">Agree</p>
 </div>	
 </div>
 
+
+<%
+	String no = request.getParameter("no");
+	DTOmade list = DAOmade.detail(no);
+%>
+
+	
 <div class="container">
   <main>
+      <form action="08agreecheck.jsp" method="post">
       <div class="col-md-7 col-lg-8"> 
-      <form action="06customcheck.jsp" method="post">
-          
-        
-          <div class="row g-3">
-            <div class="col-12">
-              <label for="Name"  class="form-label">Title</label>
-             <textarea name="made_title" rows="1" cols="40" class="form-control" placeholder="제목을 입력하세요" required></textarea>
-              <div class="invalid-feedback">
-                Valid title is required.
-              </div>
-            </div>
-           </div>
-           
+      
+		  <div class="row mb-3">
+		<label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+		<div class="col-sm-10">
+		  <input type="text" name="ask_title" class="form-control" id="inputEmail3" value="<%=list.getMade_title()%>">
+		  </div>
+		</div>
+		
+		 <div class="row mb-3">
+		<label for="inputEmail3" class="col-sm-2 col-form-label">User ID</label>
+		<div class="col-sm-10">
+		  <input type="text" name="user_id" class="form-control" id="inputEmail3" value="<%=list.getUser_id()%>" readonly>
+		  </div>
+		</div>
+		
+		<div class="row mb-3">
+		  <label for="inputEmail3" class="col-sm-2 col-form-label">Content</label>
+		  <div class="col-sm-10">
+		    <input type="text" class="form-control"  name="made_content" id="inputEmail3" value="<%=list.getMade_content()%>" readonly>
+		    </div>
+		</div>
+		
+		<div class="row mb-3">
+		  <label for="inputEmail3" class="col-sm-2 col-form-label">Date</label>
+		  <div class="col-sm-10">
+		    <input type="text" class="form-control"  name="made_date" id="inputEmail3" value="<%=list.getMade_date()%>" readonly>
+		    </div>
+		  </div>
+
+		</div>
+		
             <div class="row g-3">
             <div class="col-12">
-              <label for="Name"  class="form-label">content</label>
-             <textarea id="summernote" name="made_content" rows="5" cols="40" class="form-control" placeholder="" required></textarea>
+              <label for="Name"  class="form-label">상담내용</label>
+             <textarea id="summernote" name="ask_sol" rows="5" cols="40" class="form-control" placeholder="" required></textarea>
               <div class="invalid-feedback">
                 Valid content is required.
               </div>
@@ -65,23 +92,22 @@
              
             <div class="row g-3">
             <div class="col-12">
-              <label for="Name"  class="form-label">작성자 : </label>
-             <input name="user_id" type="text" value="누구누구" readonly>
+              <label for="Name"  class="form-label">상담자 : </label>
+             <input name="user_id" type="text" value="세션애서 이름 받아오기" readonly>
             </div>
            </div>
              
-             <input name="made_status" type="hidden" value="1">
-             
+             <input name="ask_status" type="hidden" value="1">
+             <br>
             <button type="submit" class="btn btn-success btn-lg">등록</button>
 			<button type="reset" onclick="reset()" class="btn btn-light btn-lg">취소</button>
        
 	</form>
 	<hr class="my-4">
 	<div class="d-grid gap-2 col-6 mx-auto">
-		<a href="01main.jsp" class="btn btn-outline-secondary" role="button">Main</a>
+		<a href="08consultlist.jsp" class="btn btn-outline-secondary" role="button">뒤로</a>
 	</div>
-	<br>
-	</div>
+	
 </main>
 </div>
 

@@ -5,7 +5,7 @@
 
 <br><br><br>
 
-<footer class="blog-footer">
+<footer class="blog-footer ">
  <div class="shopInfo">
 					<p>
 						<span>사이트명. 끌림 상호.   (주)끌림</span><span>대표. 이양호</span><span>이메일. <a href="javascript: __mk_open('/html/email.html', 'link_send_mail', 'width=500px, height=500px, scrollbars=yes');">abc@gamil.com</a></span><span>전화. 02-0000-0000</span><br>

@@ -35,7 +35,7 @@ public class DAOuser {
 	}
 
 	
- public static int singup(String user_id,String user_pw, String user_tel,String user_email,String user_addr) throws NamingException, SQLException {
+	public static int singup(String user_id,String user_pw, String user_tel,String user_email,String user_addr) throws NamingException, SQLException {
 		
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -77,8 +77,7 @@ public class DAOuser {
 		String user_level = rs.getString(7);
 		String user_date = rs.getString(8);
 		
-		DTOuser list = new DTOuser(user_id, user_no, user_pw, user_tel, user_email,user_addr, user_level, user_date
-				);
+		DTOuser list = new DTOuser(user_id, user_no, user_pw, user_tel, user_email,user_addr, user_level, user_date	);
 		
 		return list;
 	}
@@ -128,5 +127,29 @@ public class DAOuser {
 									
 		}
 		return lists;
+	}
+
+	
+	public static int edit(String user_id, String user_tel,String user_email,String user_addr,String user_level) throws NamingException, SQLException {	
+		Connection conn = null;	
+		PreparedStatement stmt = null;
+		
+		String sql = "UPDATE user SET user_id=?, user_tel=?, user_email=?, user_addr=?, user_level=? WHERE user_id=?";
+		
+			
+		conn= ConnectionPool.get();
+		
+		stmt = conn.prepareStatement(sql);
+			stmt.setString(1, user_id);
+			stmt.setString(2, user_tel);		
+			stmt.setString(3, user_email);		
+			stmt.setString(4, user_addr);		
+			stmt.setString(5, user_level);	
+			stmt.setString(6, user_id);
+				
+			
+		int result = stmt.executeUpdate(); 
+		
+		return result;
 	}
 }

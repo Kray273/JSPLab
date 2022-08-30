@@ -30,7 +30,7 @@
 <div class="container">
   <main>
       <div class="col-md-7 col-lg-8"> 
-      <form action="06coustomcheck.jsp" method="post">
+      <form action="06customcheck.jsp" method="post">
           
         
           <div class="row g-3">

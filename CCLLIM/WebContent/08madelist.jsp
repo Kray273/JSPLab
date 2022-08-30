@@ -1,4 +1,3 @@
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="DB.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -22,7 +21,6 @@
 
 
 <div class="container w-70">
-
 	<table class="table table-hovor table-light">
 	<hr class="my-4">
 	<h5>Custom</h5>
@@ -44,7 +42,7 @@
 	      <td><%=list.getMade_title() %></td>
 	      <td><%=list.getMade_content() %></td>
 	      <td><%=list.getMade_date() %></td>
-	      <td><a href="membersdetail.jsp?no=<%=list.getMade_no()%>">Check</a></td>
+	      <td><a href="08madedetail.jsp?no=<%=list.getMade_no()%>">Check</a></td>
 	      </tr>
 		<%	}%>
 	</table> 
@@ -70,7 +68,7 @@
 	      <td><%=list.getMade_title() %></td>
 	      <td><%=list.getMade_content() %></td>
 	      <td><%=list.getMade_date() %></td>
-	      <td><a href="membersdetail.jsp?no=<%=list.getMade_no()%>">Check</a></td>
+	      <td><a href="08madedetail.jsp?no=<%=list.getMade_no()%>">Check</a></td>
 	      </tr>
 		<%	}%>
 	</table> 
@@ -139,6 +137,9 @@
 
 </body>
 </html>
+
+    
+    
 
     
     

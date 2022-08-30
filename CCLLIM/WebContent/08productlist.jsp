@@ -29,6 +29,7 @@
 	      <th scope="col">Amount</th>	      
 	      <th scope="col">Date</th>
 	      <th scope="col">Image</th>
+	      <th scope="col">Detail</th>
 	      <th scope="col">수정</th>
 	      <th scope="col">Launch</th>
 	    </tr>
@@ -46,6 +47,7 @@
 	      <td><%=list.getProduct_amount()%></td>
 	      <td><%=list.getProduct_date()%></td>
 	      <td><img src="images/<%=list.getProduct_img1()%>" width="50px" height="50"></td>
+	      <td><a href="08productdetail.jsp?no=<%=list.getProduct_code()%>">Detail</a></td>
 	      <td><a href="08productedit.jsp?no=<%=list.getProduct_code()%>">Update</a></td>
 	      <td> <%=list.getProduct_launch()%></td>
 	       </tr>
@@ -57,6 +59,7 @@
 	<hr class="my-4">
 	<div class="d-grid gap-2 col-6 mx-auto">
 		<a href="08productregister.jsp" class="btn btn-outline-primary" role="button">등록</a>
+	</div>
 	</div>
 
 <%@ include file ="01footer.jsp" %>	

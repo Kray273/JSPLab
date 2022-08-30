@@ -96,6 +96,7 @@
             <div class="col-12">
               <label for="country" class="form-label">Launch</label><br>
                <div class="form-check form-check-inline">
+                 <% if (list.getProduct_launch().equals("0")) {%>
 				  <input class="form-check-input" name="product_launch" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="0" checked>
 				  <label class="form-check-label" for="inlineRadio1">
 				    0: 노출없음
@@ -119,6 +120,79 @@
 				    3: 신진 디자이너
 				  </label>
 				</div>
+				<%	} else if (list.getProduct_launch().equals("1")) {%>	
+				  <input class="form-check-input" name="product_launch" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="0" >
+				  <label class="form-check-label" for="inlineRadio1">
+				    0: 노출없음
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" name="product_launch"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1" checked >
+				  <label class="form-check-label" for="inlineRadio2">
+				    1: 신상
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" name="product_launch"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"  >
+				  <label class="form-check-label" for="inlineRadio3">
+				    2: 오뜨꾸뜨르
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" name="product_launch"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3"  >
+				  <label class="form-check-label" for="inlineRadio4">
+				    3: 신진 디자이너
+				  </label>
+				</div>
+				<%	} else if (list.getProduct_launch().equals("2")) {%>	
+				  <input class="form-check-input" name="product_launch" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="0" >
+				  <label class="form-check-label" for="inlineRadio1">
+				    0: 노출없음
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" name="product_launch"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1"  >
+				  <label class="form-check-label" for="inlineRadio2">
+				    1: 신상
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" name="product_launch"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" checked >
+				  <label class="form-check-label" for="inlineRadio3">
+				    2: 오뜨꾸뜨르
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" name="product_launch"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3"  >
+				  <label class="form-check-label" for="inlineRadio4">
+				    3: 신진 디자이너
+				  </label>
+				</div>
+				<%	} else if (list.getProduct_launch().equals("3")) {%>	
+				  <input class="form-check-input" name="product_launch" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="0" >
+				  <label class="form-check-label" for="inlineRadio1">
+				    0: 노출없음
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" name="product_launch"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1"  >
+				  <label class="form-check-label" for="inlineRadio2">
+				    1: 신상
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" name="product_launch"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"  >
+				  <label class="form-check-label" for="inlineRadio3">
+				    2: 오뜨꾸뜨르
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" name="product_launch"  type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3"  checked>
+				  <label class="form-check-label" for="inlineRadio4">
+				    3: 신진 디자이너
+				  </label>
+				</div>
+				<%	}%>
               <div class="invalid-feedback">
                 Please select Your gender.
               </div>
@@ -126,9 +200,9 @@
 
 
           <hr class="my-4">
+          <div class="text-center">
           <button class="w-50 btn btn-primary btn-success" type="submit">등록</button>
-          <button class="w-50 btn btn-primary btn-danger" type="reset" onclick="reset()">취소</button>
-        </div>
+         </div>
         </form>
         
     <hr class="my-4">

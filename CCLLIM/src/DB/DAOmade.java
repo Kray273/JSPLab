@@ -53,6 +53,31 @@ public class DAOmade {
 		return lists;
 	}
 	
+	public static ArrayList<DTOmade> getListU(String user_id) throws NamingException, SQLException{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null; 
+		
+		String sql = "SELECT * FROM made";
+	
+		conn= ConnectionPool.get();
+		stmt = conn.prepareStatement(sql);
+		rs = stmt.executeQuery();
+		
+		ArrayList<DTOmade> lists = new ArrayList<DTOmade>();
+		while(rs.next()) {
+			lists.add(new DTOmade(rs.getString(1),
+									rs.getString(2),
+									rs.getString(3),
+									rs.getString(4),
+									rs.getString(5),
+									rs.getString(6),
+									rs.getString(7)));
+									
+		}
+		return lists;
+	}
+	
 	public static ArrayList<DTOmade> getStatus1() throws NamingException, SQLException{
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -178,5 +203,32 @@ public class DAOmade {
 									
 		}
 		return lists;
+	}
+	
+	public static DTOmade detail(String made_no) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null; 
+		
+		String sql = "SELECT * FROM made WHERE made_no=? ";
+		conn= ConnectionPool.get();
+		stmt = conn.prepareStatement(sql);
+			stmt.setString(1, made_no);	
+		rs = stmt.executeQuery();
+		
+		rs.next();
+		
+		made_no = rs.getString(1);
+		String user_id = rs.getString(2);
+		String made_title = rs.getString(3);
+		String made_content = rs.getString(4);
+		String made_raw = rs.getString(5);
+		String made_status = rs.getString(6);
+		String made_date = rs.getString(7);
+		
+		
+		DTOmade list = new DTOmade(made_no,user_id, made_title, made_content,made_raw, made_status,made_date );
+		
+		return list;
 	}
 }

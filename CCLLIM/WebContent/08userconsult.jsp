@@ -1,4 +1,3 @@
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="DB.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -16,56 +15,49 @@
 
 <div class="alert alert-secondary" role="alert">
  <div class="container">
-	<p class = "display-5">Ask_List </p>
+	<p class = "display-5">User_Consult </p>
 </div>	
 </div>
 
+<%
+	String no = request.getParameter("no");
+	ArrayList<DTOask> lists1 = DAOask.getListU(no);
+	ArrayList<DTOmade> lists2 = DAOmade.getListU(no);
+%>
+
 <div class="container w-70">
 <h5>Asking</h5>
-<div class="text-end">
-<a href="08consultlistall.jsp" class="btn btn-secondary btn-sm text-end" role="button">Ask_all</a>
-</div>
 	<table class="table table-hovor table-light">
 	   <tr>
 	      <th scope="col">No</th>
 	      <th scope="col">상담자</th>
 	      <th scope="col">고객ID</th>
-	      <th scope="col">Title</th>
-	      <th scope="col">Content</th>
-	      <th scope="col">Sol</th>	      
+	      <th scope="col">Title</th>     
 	      <th scope="col">Status</th>
 	      <th scope="col">상담일</th>
-	      <th scope="col">의뢰일</th>
 	      <th scope="col">Consult</th>
 	    </tr>
 	  	<%
 	  		int i=1;
-			ArrayList<DTOask> lists = DAOask.getList12();
-			for(DTOask list : lists){
+			for(DTOask list : lists1){
 		%>
 	    <tr>
-	      <th scope="row"><%=list.getAsk_no()%></th>
+	      <th scope="row"><%=i%></th>
 	      <td><%=list.getAsk_sign() %></td>
 	      <td><%=list.getUser_id() %></td>
-	 	      <td><%=list.getAsk_title() %></td>
-	      <td><%=list.getMade_content() %></td>
-	      <td><%=list.getAsk_sol() %></td>
+	 	  <td><%=list.getAsk_title() %></td>
 	      <td><%=list.getAsk_status() %></td>
 	      <td><%=list.getAsk_day() %></td>
-	      <td><%=list.getMade_date() %></td>
 	      <td><a href="08consultedit.jsp?no=<%=list.getAsk_no()%>">Check</a></td>
 	      </tr>
 		<%		
-			}
+			i += 1; }
 		%>
  </table> 
  
  <table class="table table-hovor table-light">
 	<hr class="my-4">
 	<h5>Request</h5>
-	<div class="text-end">
-<a href="08madelist.jsp" class="btn btn-secondary btn-sm text-end" role="button">Made_list</a>
-</div>
 	    <tr>
 	      <th scope="col">No</th>
 	      <th scope="col">User_ID</th>
@@ -74,27 +66,29 @@
 	      <th scope="col">의뢰일</th>
 	      <th scope="col">Agree</th>
 	    </tr>
-	  <%	ArrayList<DTOmade> lists2 = DAOmade.getStatus123();
+	  <% 
 		  for(DTOmade list : lists2){ %>
 	    <tr>
-	      <th scope="row"><%=list.getMade_no()%></th>
+	      <th scope="row"><%=i%></th>
 	      <td><%=list.getUser_id() %></td>
 	      <td><%=list.getMade_status() %></td>
 	      <td><%=list.getMade_title() %></td>
 	       <td><%=list.getMade_date() %></td>
-	      <td><a href="08agree.jsp?no=<%=list.getMade_no()%>">Check</a></td>
+	      <td><a href="08madedetail.jsp?no=<%=list.getMade_no()%>">Check</a></td>
 	      </tr>
-		<%	}%>
+		<% i += 1;	}%>
 	</table>
 	
 	
+	<hr class="my-4">
+	<div class="d-grid gap-2 col-6 mx-auto">
+		<a href="08userlist.jsp" class="btn btn-outline-primary" role="button">뒤로</a>
+	</div>
+</div>	
 	
-</div>
+
 
 <%@ include file ="01footer.jsp" %>	
 
 </body>
 </html>
-
-    
-    

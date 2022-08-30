@@ -62,6 +62,115 @@ public class DAOproduct {
 		}
 		return lists;
 	}
+	public static ArrayList<DTOproduct> getList1() throws NamingException, SQLException{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null; 
+		
+		String sql = "SELECT * FROM product WHERE product_launch=1";
+		
+		conn= ConnectionPool.get();
+		stmt = conn.prepareStatement(sql);
+		rs = stmt.executeQuery();
+		
+		ArrayList<DTOproduct> lists = new ArrayList<DTOproduct>();
+		while(rs.next()) {
+			lists.add(new DTOproduct(rs.getString(1),
+									rs.getString(2),
+									rs.getString(3),
+									rs.getString(4),
+									rs.getString(5),
+									rs.getString(6),
+									rs.getString(7),
+									rs.getString(8),
+									rs.getString(9),
+									rs.getString(10)));
+									
+		}
+		return lists;
+	}
+	public static ArrayList<DTOproduct> getList2() throws NamingException, SQLException{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null; 
+		
+		String sql = "SELECT * FROM product WHERE product_launch=2";
+	
+		conn= ConnectionPool.get();
+		stmt = conn.prepareStatement(sql);
+		rs = stmt.executeQuery();
+		
+		ArrayList<DTOproduct> lists = new ArrayList<DTOproduct>();
+		while(rs.next()) {
+			lists.add(new DTOproduct(rs.getString(1),
+									rs.getString(2),
+									rs.getString(3),
+									rs.getString(4),
+									rs.getString(5),
+									rs.getString(6),
+									rs.getString(7),
+									rs.getString(8),
+									rs.getString(9),
+									rs.getString(10)));
+									
+		}
+		return lists;
+	}
+	public static ArrayList<DTOproduct> getList4() throws NamingException, SQLException{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null; 
+		
+		String sql = "SELECT * FROM product WHERE product_launch=4";
+	
+		conn= ConnectionPool.get();
+		stmt = conn.prepareStatement(sql);
+		rs = stmt.executeQuery();
+		
+		ArrayList<DTOproduct> lists = new ArrayList<DTOproduct>();
+		while(rs.next()) {
+			lists.add(new DTOproduct(rs.getString(1),
+									rs.getString(2),
+									rs.getString(3),
+									rs.getString(4),
+									rs.getString(5),
+									rs.getString(6),
+									rs.getString(7),
+									rs.getString(8),
+									rs.getString(9),
+									rs.getString(10)));
+									
+		}
+		return lists;
+	}
+	
+	public static ArrayList<DTOproduct> getListA() throws NamingException, SQLException{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null; 
+		
+		String sql = "SELECT * FROM product WHERE product_launch IN('1','2','4') ORDER BY product_launch";
+	
+		conn= ConnectionPool.get();
+		stmt = conn.prepareStatement(sql);
+		rs = stmt.executeQuery();
+		
+		ArrayList<DTOproduct> lists = new ArrayList<DTOproduct>();
+		while(rs.next()) {
+			lists.add(new DTOproduct(rs.getString(1),
+									rs.getString(2),
+									rs.getString(3),
+									rs.getString(4),
+									rs.getString(5),
+									rs.getString(6),
+									rs.getString(7),
+									rs.getString(8),
+									rs.getString(9),
+									rs.getString(10)));
+									
+		}
+		return lists;
+	}
 	public static DTOproduct detail(String product_code) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -92,28 +201,32 @@ public class DAOproduct {
 		return list;
 	}
 	
-	public static int edit(String raw_code, String raw_name, String raw_amount, String raw_image, String raw_location) throws NamingException, SQLException {
+	public static int edit(String product_code, String product_name, String product_price, String product_amount, String product_desc, String product_img1, String product_img2, String product_img3, String product_launch) throws NamingException, SQLException {
 			
 			Connection conn = null;	
 			PreparedStatement stmt = null;
 			
-			String sql = "UPDATE raw SET raw_code=?, raw_name=?, raw_amount=?, raw_image=?, raw_location=? WHERE raw_code=?";
-			
+			String sql = "UPDATE product SET product_code=?, product_name=?, product_price=?, product_amount=?, product_desc=?, product_img1=?, product_img2=?, product_img3=?, product_launch=? WHERE product_code=?";
 				
 			conn= ConnectionPool.get();
 			
 			stmt = conn.prepareStatement(sql);
-				stmt.setString(1, raw_code);
-				stmt.setString(2, raw_name);		
-				stmt.setString(3, raw_amount);		
-				stmt.setString(4, raw_image);		
-				stmt.setString(5, raw_location);		
-				stmt.setString(6, raw_code);		
+				stmt.setString(1, product_code);
+				stmt.setString(2, product_name);		
+				stmt.setString(3, product_price);		
+				stmt.setString(4, product_amount);		
+				stmt.setString(5, product_desc);		
+				stmt.setString(6, product_img1);		
+				stmt.setString(7, product_img2);		
+				stmt.setString(8, product_img3);		
+				stmt.setString(9, product_launch);		
+				stmt.setString(10, product_code);	
 				
 			int result = stmt.executeUpdate(); 
 			
 			return result;
 		}
+	
 	
 	
 }
