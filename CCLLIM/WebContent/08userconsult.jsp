@@ -12,7 +12,25 @@
 
 
 <%@ include file="01header.jsp" %>
-
+<%
+	    user_id = (String)session.getAttribute("user_id");
+	    level = (String)session.getAttribute("user_level");
+    	    	
+	    if (user_id == null) {
+			out.println("<script>alert('로그인이 필요합니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else{
+	    if (level.equals("4")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else if (level.equals("5")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else if (level.equals("6")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		}}
+%> 
 <div class="alert alert-secondary" role="alert">
  <div class="container">
 	<p class = "display-5">User_Consult </p>
@@ -74,7 +92,7 @@
 	      <td><%=list.getMade_status() %></td>
 	      <td><%=list.getMade_title() %></td>
 	       <td><%=list.getMade_date() %></td>
-	      <td><a href="08madedetail.jsp?no=<%=list.getMade_no()%>">Check</a></td>
+	      <td><a href="08agree.jsp?no=<%=list.getMade_no()%>">Check</a></td>
 	      </tr>
 		<% i += 1;	}%>
 	</table>

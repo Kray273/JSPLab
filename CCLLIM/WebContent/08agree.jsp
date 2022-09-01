@@ -21,6 +21,25 @@
 
 
 <%@ include file="01header.jsp" %>
+<%
+	    user_id = (String)session.getAttribute("user_id");
+	    level = (String)session.getAttribute("user_level");
+    	    	
+	    if (user_id == null) {
+			out.println("<script>alert('로그인이 필요합니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else{
+	    if (level.equals("4")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else if (level.equals("5")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else if (level.equals("6")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		}}
+%>
 
 <div class="alert alert-secondary" role="alert">
  <div class="container">
@@ -30,7 +49,8 @@
 
 
 <%
-	String no = request.getParameter("no");
+ String no = request.getParameter("no");
+
 	DTOmade list = DAOmade.detail(no);
 %>
 
@@ -61,12 +81,7 @@
 		    </div>
 		</div>
 		
-		<div class="row mb-3">
-		  <label for="inputEmail3" class="col-sm-2 col-form-label">Date</label>
-		  <div class="col-sm-10">
-		    <input type="text" class="form-control"  name="made_date" id="inputEmail3" value="<%=list.getMade_date()%>" readonly>
-		    </div>
-		  </div>
+		
 
 		</div>
 		
@@ -93,9 +108,18 @@
             <div class="row g-3">
             <div class="col-12">
               <label for="Name"  class="form-label">상담자 : </label>
-             <input name="user_id" type="text" value="세션애서 이름 받아오기" readonly>
+             <input name="ask_sign" type="text" value="<%=user_id%>" readonly>
             </div>
            </div>
+           
+           <div class="row g-3">
+            <div class="col-12">
+              <label for="Name"  class="form-label">Date : </label>
+                <input name="made_date" type="text" value="<%=list.getMade_date()%>" readonly>
+              </div>
+           </div>
+           
+        
              
              <input name="ask_status" type="hidden" value="1">
              <br>
@@ -110,7 +134,6 @@
 	
 </main>
 </div>
-
 <%@ include file ="01footer.jsp" %>	
 
 </body>

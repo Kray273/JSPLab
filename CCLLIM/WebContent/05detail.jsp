@@ -12,25 +12,6 @@
 
 <%@ include file="01header.jsp" %>
 <%
-	    user_id = (String)session.getAttribute("user_id");
-	    level = (String)session.getAttribute("user_level");
-    	    	
-	    if (user_id == null) {
-			out.println("<script>alert('로그인이 필요합니다.');</script>");
-			out.println("<script>location.href='01main.jsp'</script>");
-		} else{
-	    if (level.equals("4")) {
-			out.println("<script>alert('권한이 없습니다.');</script>");
-			out.println("<script>location.href='01main.jsp'</script>");
-		} else if (level.equals("5")) {
-			out.println("<script>alert('권한이 없습니다.');</script>");
-			out.println("<script>location.href='01main.jsp'</script>");
-		} else if (level.equals("6")) {
-			out.println("<script>alert('권한이 없습니다.');</script>");
-			out.println("<script>location.href='01main.jsp'</script>");
-		}}
-%> 
-<%
 	String no = request.getParameter("no");
     DTOproduct list = DAOproduct.detail(no);
 	
@@ -95,18 +76,16 @@
     </div>
     
     
-    <br><br>
+    <br>
     <hr class="featurette-divider">
     <div class="text-center">
 	<span class="text-muted"><%=list.getProduct_price()%>Won</span></div>
     <hr class="featurette-divider">
-	<br><br>
+	<br>
 	<div class="d-grid gap-2 col-6 mx-auto">
-		<a href="08productlist.jsp" class="btn btn-outline-primary" role="button">LIST</a>
+		<a href="07buying.jsp?no=<%=list.getProduct_code()%>" class="btn btn-outline-success" role="button">Buy</a>
 	</div>
-	<div class="d-grid gap-2 col-6 mx-auto">
-		<a href="08productedit.jsp?no=<%=list.getProduct_code()%>" class="btn btn-outline-primary" role="button">Edit</a>
-	</div>
+	<br>
 </div>
 
 <%@ include file ="01footer.jsp" %>	

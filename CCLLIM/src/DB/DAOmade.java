@@ -57,11 +57,12 @@ public class DAOmade {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null; 
-		
-		String sql = "SELECT * FROM made";
+	
+		String sql = "SELECT * FROM made WHERE user_id=?";
 	
 		conn= ConnectionPool.get();
 		stmt = conn.prepareStatement(sql);
+				stmt.setString(1, user_id);	
 		rs = stmt.executeQuery();
 		
 		ArrayList<DTOmade> lists = new ArrayList<DTOmade>();
@@ -230,5 +231,31 @@ public class DAOmade {
 		DTOmade list = new DTOmade(made_no,user_id, made_title, made_content,made_raw, made_status,made_date );
 		
 		return list;
+	}
+	
+	public static ArrayList<DTOmade> getListU123(String user_id) throws NamingException, SQLException{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null; 
+	
+		String sql = "SELECT * FROM made WHERE (made_status in('1','2','3'))AND (user_id=?)";
+	
+		conn= ConnectionPool.get();
+		stmt = conn.prepareStatement(sql);
+				stmt.setString(1, user_id);	
+		rs = stmt.executeQuery();
+		
+		ArrayList<DTOmade> lists = new ArrayList<DTOmade>();
+		while(rs.next()) {
+			lists.add(new DTOmade(rs.getString(1),
+									rs.getString(2),
+									rs.getString(3),
+									rs.getString(4),
+									rs.getString(5),
+									rs.getString(6),
+									rs.getString(7)));
+									
+		}
+		return lists;
 	}
 }

@@ -12,6 +12,25 @@
 
 <%@ include file="01header.jsp" %>
 <%
+	    user_id = (String)session.getAttribute("user_id");
+	    level = (String)session.getAttribute("user_level");
+    	    	
+	    if (user_id == null) {
+			out.println("<script>alert('로그인이 필요합니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else{
+	    if (level.equals("4")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else if (level.equals("5")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else if (level.equals("6")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		}}
+%> 
+<%
 	String no = request.getParameter("no");
     DTOproduct list = DAOproduct.detail(no);
 %>
@@ -29,7 +48,7 @@
           
             <div class="col-12">
               <label for="Name"  class="form-label">code</label>
-              <input type="text" name="product_code" value="<%=list.getProduct_code()%>" class="form-control" id="firstName" placeholder="" required>
+              <input type="text" name="product_code" value="<%=list.getProduct_code()%>" class="form-control" id="firstName" placeholder="" readonly>
               <div class="invalid-feedback">
                 Valid product_code is required.
               </div>

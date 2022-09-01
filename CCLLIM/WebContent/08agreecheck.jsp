@@ -16,8 +16,7 @@
 	String ask_status = request.getParameter("ask_status");
 	String made_date = request.getParameter("made_date");
 	
-	DAOask.insert(ask_title, user_id, made_content, ask_sol,ask_sign,ask_status,made_date);
-	
+   DAOask.insert(ask_title, user_id, made_content, ask_sol, ask_sign, ask_status, made_date);
 	
 	out.print("<script>alert('등록이 완료되었습니다.');</script>");
 	out.print("<script>location.href='08consultlist.jsp';</script>");	

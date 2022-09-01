@@ -12,6 +12,7 @@
 
 <%@ include file="01header.jsp" %>
 <main>
+<div >
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -25,7 +26,7 @@
         <div class="container">
           <div class="carousel-caption text-start">
             <h1>2022 F/W</h1>
-            <p>Some representative placeholder content for the first slide of the carousel.</p>
+            <p>2022 F/W</p>
             <p><a class="btn btn-lg btn-primary" href="#">new</a></p>
           </div>
         </div>
@@ -36,7 +37,7 @@
         <div class="container">
           <div class="carousel-caption">
             <h1>2022 F/W</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
+            <p>2022 F/W</p>
             <p><a class="btn btn-lg btn-primary" href="#">new</a></p>
           </div>
         </div>
@@ -47,7 +48,7 @@
         <div class="container">
           <div class="carousel-caption text-end">
             <h1>2022 F/W</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
+            <p>2022 F/W</p>
             <p><a class="btn btn-lg btn-primary" href="#">new</a></p>
           </div>
         </div>
@@ -62,12 +63,13 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
- 
+ </div>
  
  
 <div class="container">
 <%
 			ArrayList<DTOproduct> lists = DAOproduct.getList1();
+
 			for(DTOproduct list : lists){
 		%>
     
@@ -76,9 +78,9 @@
         <h2 class="display-5"><%=list.getProduct_name()%></h2>
         <p class="lead"><%=list.getProduct_desc()%></p>
       </div>
-      <a href="04detail.jsp?no=<%=list.getProduct_code()%>">
+      <a href="05detail.jsp?no=<%=list.getProduct_code()%>">
       <div class="bg-body shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-      <img src="image/<%=list.getProduct_img1()%>"></div></a>
+      <img src="images/<%=list.getProduct_img1()%>"></div></a>
     </div>
     
 	 <% }		%>

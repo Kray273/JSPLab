@@ -11,7 +11,25 @@
 
 
 <%@ include file="01header.jsp" %>
-
+<%
+	    user_id = (String)session.getAttribute("user_id");
+	    level = (String)session.getAttribute("user_level");
+    	    	
+	    if (user_id == null) {
+			out.println("<script>alert('로그인이 필요합니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else{
+	    if (level.equals("4")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else if (level.equals("5")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		} else if (level.equals("6")) {
+			out.println("<script>alert('권한이 없습니다.');</script>");
+			out.println("<script>location.href='01main.jsp'</script>");
+		}}
+%> 
 
 <div class="alert alert-secondary" role="alert">
  <div class="container">
@@ -48,7 +66,7 @@
 
             <div class="col-12">
               <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" name="user_tel" id="email" placeholder="you@example.com" value="<%=list.getUser_email()%>">
+              <input type="email" class="form-control" name="user_email" id="email" placeholder="you@example.com" value="<%=list.getUser_email()%>">
               <div class="invalid-feedback">
                 Please enter a valid email address for updates.
               </div>

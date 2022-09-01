@@ -14,7 +14,7 @@ public class DAOask {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		
-		String sql = "INSERT INTO raw (ask_title, user_id, made_content, ask_sol,ask_sign,ask_status,made_date) VALUES(?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO ask (ask_title, user_id, made_content, ask_sol,ask_sign,ask_status,made_date) VALUES(?,?,?,?,?,?,?)";
 	
 		conn= ConnectionPool.get();
 		
@@ -64,10 +64,11 @@ public class DAOask {
 		PreparedStatement stmt = null;
 		ResultSet rs = null; 
 		
-		String sql = "SELECT * FROM ask";
+		String sql = "SELECT * FROM ask WHERE user_id=?";
 	
 		conn= ConnectionPool.get();
 		stmt = conn.prepareStatement(sql);
+		stmt.setString(1, user_id);	
 		rs = stmt.executeQuery();
 		
 		ArrayList<DTOask> lists = new ArrayList<DTOask>();

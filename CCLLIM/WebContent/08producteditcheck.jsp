@@ -69,8 +69,6 @@
   DAOproduct.edit(product_code, product_name, product_price, product_amount, product_desc, product_img1, product_img2, product_img3, product_launch);
 	
 	out.print("<script>alert('수정완료.');</script>");
-	out.print("<script>location.href='08productlist.jsp';</script>"); 	
-%>
-
-
+	out.print("<script>location.href='08productlist.jsp';</script>");
+%> 
     

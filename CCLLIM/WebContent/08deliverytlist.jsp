@@ -1,4 +1,3 @@
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="DB.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -32,9 +31,10 @@
 			out.println("<script>location.href='01main.jsp'</script>");
 		}}
 %> 
+
 <div class="alert alert-secondary" role="alert">
  <div class="container">
-	<p class = "display-5">Ask_List_All </p>
+	<p class = "display-5">Delivery_List </p>
 </div>	
 </div>
 
@@ -42,45 +42,42 @@
 	<table class="table table-hovor table-light">
 	  <thead>
 	    <tr>
-	      <th scope="col">No</th>
-	      <th scope="col">상담자</th>
-	      <th scope="col">고객ID</th>
-	      <th scope="col">Title</th>
-	      <th scope="col">Content</th>
-	      <th scope="col">Sol</th>	      
+	      <th scope="col">no</th>
+	      <th scope="col">code</th>
+	      <th scope="col">name</th>
+	      <th scope="col">User_id</th>	      
+	      <th scope="col">Tel</th>
+	      <th scope="col">Address</th>
+	      <th scope="col">Email</th>
 	      <th scope="col">Status</th>
-	      <th scope="col">상담일</th>
-	      <th scope="col">의뢰일</th>
-	      <th scope="col">Consult</th>
+	      <th scope="col">Delivery</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  	<%
 	  		int i=1;
-			ArrayList<DTOask> lists = DAOask.getList();
-			for(DTOask list : lists){
+			ArrayList<DTOdelivery> lists = DAOdelivery.getList();
+			for(DTOdelivery list : lists){
 		%>
 	    <tr>
-	      <th scope="row"><%=list.getAsk_no()%></th>
-	      <td><%=list.getAsk_sign() %></td>
+	      <th scope="row"><%=list.getDelivery_no()%></th>
+	      <td><a href="08productdetail.jsp?no=<%=list.getProduct_code()%>"> <%=list.getProduct_code() %></a></td>
+	      <td><%=list.getProduct_name() %></td>
 	      <td><%=list.getUser_id() %></td>
-	      <td><%=list.getAsk_title() %></td>
-	      <td><%=list.getMade_content() %></td>
-	      <td><%=list.getAsk_sol() %></td>
-	      <td><%=list.getAsk_status() %></td>
-	      <td><%=list.getAsk_day() %></td>
-	      <td><%=list.getMade_date() %></td>
-	      <td><a href="08consultedit.jsp?no=<%=list.getAsk_no()%>">Check</a></td>
-	      </tr>
+	      <td><%=list.getUser_tel() %></td>
+	      <td><%=list.getUser_addr() %></td>
+	      <td><%=list.getUser_email() %></td>
+	      <td><%=list.getDelivery_status()%></td>
+	      <td><%=list.getDelivery_done()%></td>
+	       </tr>
 		<%		
 			}
 		%>
 	  </tbody>
 	</table> 
-	
 	<hr class="my-4">
 	<div class="d-grid gap-2 col-6 mx-auto">
-		<a href="08consultlist.jsp" class="btn btn-outline-primary" role="button">뒤로</a>
+		<a href="#" class="btn btn-outline-primary" role="button">등록</a>
 	</div>
 	</div>
 
@@ -89,5 +86,4 @@
 </body>
 </html>
 
-    
     

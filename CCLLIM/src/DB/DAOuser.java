@@ -55,6 +55,25 @@ public class DAOuser {
 		return result;
 	}
 	
+	public static int drop(String user_id, String user_pw) throws NamingException, SQLException  {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		int result = 0;
+		
+		String sql = "DELETE FROM user WHERE (user_id=?) and (user_pw=?) ";
+		
+		conn= ConnectionPool.get();
+		
+		stmt = conn.prepareStatement(sql);
+			stmt.setString(1, user_id);
+			stmt.setString(2, user_pw);			
+			
+		result = stmt.executeUpdate();
+		// 결과가 성공1 과 실패 0으로 넘어 온다. 
+		
+		return result;	
+	}
+	
 	public static DTOuser detail(String user_id) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -146,6 +165,27 @@ public class DAOuser {
 			stmt.setString(4, user_addr);		
 			stmt.setString(5, user_level);	
 			stmt.setString(6, user_id);
+				
+			
+		int result = stmt.executeUpdate(); 
+		
+		return result;
+	}
+	public static int editU(String user_id, String user_tel,String user_email,String user_addr) throws NamingException, SQLException {	
+		Connection conn = null;	
+		PreparedStatement stmt = null;
+		
+		String sql = "UPDATE user SET user_id=?, user_tel=?, user_email=?, user_addr=? WHERE user_id=?";
+		
+			
+		conn= ConnectionPool.get();
+		
+		stmt = conn.prepareStatement(sql);
+			stmt.setString(1, user_id);
+			stmt.setString(2, user_tel);		
+			stmt.setString(3, user_email);		
+			stmt.setString(4, user_addr);	
+			stmt.setString(5, user_id);
 				
 			
 		int result = stmt.executeUpdate(); 

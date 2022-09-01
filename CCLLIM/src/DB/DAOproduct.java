@@ -201,31 +201,32 @@ public class DAOproduct {
 		return list;
 	}
 	
-	public static int edit(String product_code, String product_name, String product_price, String product_amount, String product_desc, String product_img1, String product_img2, String product_img3, String product_launch) throws NamingException, SQLException {
-			
-			Connection conn = null;	
-			PreparedStatement stmt = null;
-			
-			String sql = "UPDATE product SET product_code=?, product_name=?, product_price=?, product_amount=?, product_desc=?, product_img1=?, product_img2=?, product_img3=?, product_launch=? WHERE product_code=?";
+	public static int edit(String product_code, String product_name, String product_price, String product_amount, String product_desc,String product_img1,String product_img2,String product_img3,String product_launch) throws NamingException, SQLException {
+		
+		Connection conn = null;	
+		PreparedStatement stmt = null;
+		
+		String sql = "UPDATE product SET product_code=?, product_name=?, product_price=?, product_amount=?, product_desc=?, product_img1=?, product_img2=?, product_img3=?, product_launch=? WHERE product_code=?";
+		
+		conn= ConnectionPool.get();
+		
+		stmt = conn.prepareStatement(sql);
+			stmt.setString(1, product_code);
+			stmt.setString(2, product_name);		
+			stmt.setString(3, product_price);		
+			stmt.setString(4, product_amount);		
+			stmt.setString(5, product_desc);		
+			stmt.setString(6, product_img1);		
+			stmt.setString(7, product_img2);		
+			stmt.setString(8, product_img3);		
+			stmt.setString(9, product_launch);		
+			stmt.setString(10, product_code);	
 				
-			conn= ConnectionPool.get();
 			
-			stmt = conn.prepareStatement(sql);
-				stmt.setString(1, product_code);
-				stmt.setString(2, product_name);		
-				stmt.setString(3, product_price);		
-				stmt.setString(4, product_amount);		
-				stmt.setString(5, product_desc);		
-				stmt.setString(6, product_img1);		
-				stmt.setString(7, product_img2);		
-				stmt.setString(8, product_img3);		
-				stmt.setString(9, product_launch);		
-				stmt.setString(10, product_code);	
-				
-			int result = stmt.executeUpdate(); 
-			
-			return result;
-		}
+		int result = stmt.executeUpdate(); 
+		
+		return result;
+	}
 	
 	
 	

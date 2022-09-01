@@ -95,6 +95,7 @@
 			status = user_id + "님 방문을 환영합니다.";
 		} 
 	%> 
+
 	
 	
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
@@ -118,21 +119,10 @@
 	        <a class="link-secondary" href="#" aria-label="Search">
 	          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
 	        </a>
-	        <%if (user_id != null) {%>
-		    
-		    <div class="btn-group" role="group">
-			    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-			      내 정보
-			    </button>
-			    <ul class="dropdown-menu">
-			      <li><a class="dropdown-item" href="#">구매내역</a></li>
-			      <li><a class="dropdown-item" href="#">상담내역</a></li>
-			      <li><a class="dropdown-item" href="#">배송확인</a></li>
-			      <li><a class="dropdown-item" href="#">회원정보 수정</a></li>
-			    </ul>
-			  </div>
-			  
-	         <%}%> 
+	       <%if (user_id != null) {%>
+		    <a class="btn btn-sm btn-outline-secondary" href="03myinfo.jsp">내 정보</a>
+		   
+			 <%}%>
 	        
 	        <%
 		    if (user_id == null) {%>
@@ -162,10 +152,10 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Store</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">2022 F/W</a></li>
-              <li><a class="dropdown-item" href="#">haute couture</a></li>
-              <li><a class="dropdown-item" href="#">New designer</a></li>
-              <li><a class="dropdown-item" href="#">all</a></li>
+              <li><a class="dropdown-item" href="05newlist.jsp">2022 F/W</a></li>
+              <li><a class="dropdown-item" href="05hautecouture.jsp">haute couture</a></li>
+              <li><a class="dropdown-item" href="05newdesigner.jsp">New designer</a></li>
+              <li><a class="dropdown-item" href="05all.jsp">all</a></li>
             </ul>
           </li>
           
@@ -180,12 +170,13 @@
           
          <%
          if (level == null) {}
-         else if (level.equals("3")) {%> --%>
+         else if (level.equals("3")) {%> 
            <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">관리자</a>
             <ul class="dropdown-menu">
                <li><a class="dropdown-item" href="08consultlist.jsp">상담목록</a></li>
               <li><a class="dropdown-item" href="08userlist.jsp">회원목록</a></li>
+             <li><a class="dropdown-item" href="08deliverytlist.jsp">배송관리</a></li>
             </ul>
           </li>
           <%} 
@@ -198,7 +189,7 @@
             </ul>
           </li> 
           <%} 
-         else if (level.equals("1")) {%> 
+         else if (level.equals("1")) {%>  --%>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">관리자</a>
             <ul class="dropdown-menu">
@@ -206,10 +197,10 @@
               <li><a class="dropdown-item" href="08userlist.jsp">회원목록</a></li>
               <li><a class="dropdown-item" href="08rawlist.jsp">자제목록</a></li>
               <li><a class="dropdown-item" href="08productlist.jsp">제품목록</a></li>
-              <li><a class="dropdown-item" href="#">배송관리</a></li>
+              <li><a class="dropdown-item" href="08deliverytlist.jsp">배송관리</a></li>
             </ul>
           </li>
-           <%}%> 
+          <%}%> 
           
           
         </ul>
