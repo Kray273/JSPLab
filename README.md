@@ -17,4 +17,6 @@ Day36 https://www.notion.so/Day36-7a6d076843194a43bab3e5a1fbbbce2f
 
 Day37 https://www.notion.so/Day37-be9128ddb6534c1f9c4fe01e27b5c34f
 
-Day124 https://www.notion.so/Day-BE-124_JDBC-CRUD-2-c2f3871ff5034a0481be6374de4b0426
+Day124 https://www.notion.so/Day-BE-124_JDBC-CRUD-2-c2f3871ff5034a0481be6374de4b0426 
+
+Day125 https://www.notion.so/Day-BE-125_-3d8b45c0fbb044f6b9a3f0021d5f2f5b
