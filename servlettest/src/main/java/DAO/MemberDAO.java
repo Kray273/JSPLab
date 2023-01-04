@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import DTO.MemberDTO;
 
 public class MemberDAO {
@@ -18,7 +22,6 @@ public class MemberDAO {
 		int count = 0;
 		try {
 			Class.forName(ConnectionInform.DRIVER_CLASS);
-			//1.db 연결
 			con = DriverManager.getConnection
 					(ConnectionInform.JDBC_URL, ConnectionInform.USERNAME, ConnectionInform.PASSWORD);
 			String sql = "insert into member values(?,?,?,?,?,?, now())";
@@ -119,10 +122,15 @@ public class MemberDAO {
 		MemberDTO dto = null;
 
 		try {
-			Class.forName(ConnectionInform.DRIVER_CLASS);
-			con = DriverManager.getConnection(ConnectionInform.JDBC_URL, ConnectionInform.USERNAME,
-					ConnectionInform.PASSWORD);
-
+			// 아래 기능을 톰켓에게 위임
+			//Class.forName(ConnectionInform.DRIVER_CLASS);
+			//con = DriverManager.getConnection(ConnectionInform.JDBC_URL, ConnectionInform.USERNAME,
+			//		ConnectionInform.PASSWORD);
+			Context initContext = new InitialContext(); // context.xml 준비
+			Context evContext =( Context )initContext.lookup("java:/comp/java"); //자바 연관 설정
+			DataSource ds = (DataSource)evContext.lookup("jdbc/mydb"); 
+			con = ds.getConnection(); // 톰캣한테  커넥션 pool 빌려온다
+			
 			String sql = "SELECT * FROM member WHERE id =? ";
 			pt = con.prepareStatement(sql);
 			pt.setString(1, id);
@@ -147,12 +155,12 @@ public class MemberDAO {
 				System.out.println("일치하는 ID가 없습니다. 회원가입이 필요합니다.");
 			}
 
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (Exception e  ) {
 			e.printStackTrace();
 		} finally {
 			try {
 				pt.close();
-				con.close();
+				con.close(); //Pool로 반납
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
