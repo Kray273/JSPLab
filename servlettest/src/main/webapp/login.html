@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Form</title>
+</head>
+<body>
+	<h1>로그인하세요</h1>
+<!--
+서블릿 url --"/a"--  http://localhost:8081/servlettest/a
+html태그 속성 url -- "/a" http://localhost:8081/a 
+둘이 다른 위치임. 
+-->
+	<!-- <form action ="http://localhost:8081/servlettest/loginprocess"> 동일-->
+	<!-- <form action ="loginprocess"> 동일 -->
+	<form action ="/servlettest/loginprocess" method="get"><!-- 상대url을 사용하는 것을 권고  -->
+		<!-- method:get방식은 주소창에 전송되는 데이터가 보인다.  -->
+	<!--  <form action ="/servlettest/loginprocess" method="post"> -->
+		<!-- method:post방식은 주소창에 전송되는 데이터가 보이지 않는다.  -->
+		아이디입력 : <input type="text" name="id"><br>
+		암호입력 : <input type="password"  name="pw"><br>
+		<br><br>
+		<select name="title" multiple="multiple">
+			<option>웹 클라이언트 과정</option>
+			<option>웹 서버 과정</option>
+			<option>데이터베이스 과정</option>
+			<option>서비스배포 과정</option>
+		</select><br>
+		<input type="submit" value="로그인">
+	</form>
+	
+	<!-- a 방식 -->
+	<a href="/servlettest/loginprocess?id=a&pw=1&title=spring"> 서블릿 호출링크</a>
+	
+	<!-- 스크립트 방식 -->
+	<button id="btn">버튼클릭</button>
+	<script>
+	document.getElementById("btn").onclick = function(){
+		location.href="/servlettest/loginprocess?id=javascript&pw=1&title=spring";
+	}
+	</script>
+	
+</body>
+</html>
