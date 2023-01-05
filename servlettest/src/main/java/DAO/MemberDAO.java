@@ -11,19 +11,23 @@ import java.util.Set;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NameNotFoundException;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import DTO.MemberDTO;
 
 public class MemberDAO {
+	Connection con = null;
+	PreparedStatement pt = null;
+	
 	public int insertMember(MemberDTO dto) {
-		Connection con = null;
-		PreparedStatement pt = null;
 		int count = 0;
 		try {
-			Class.forName(ConnectionInform.DRIVER_CLASS);
-			con = DriverManager.getConnection
-					(ConnectionInform.JDBC_URL, ConnectionInform.USERNAME, ConnectionInform.PASSWORD);
+			Context initContext = new InitialContext(); 
+			DataSource ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/mydb"); 
+			con = ds.getConnection(); 
+			
 			String sql = "insert into member values(?,?,?,?,?,?, now())";
 			pt = con.prepareStatement(sql);
 			pt.setString(1, dto.getId());
@@ -48,14 +52,12 @@ public class MemberDAO {
 	}//insertMember end
 
 	public int getTotalMember() {
-		Connection con = null;
-		PreparedStatement pt = null;
 		int count = 0;
 		try {
-			Class.forName(ConnectionInform.DRIVER_CLASS);
-			//1.db 연결
-			con = DriverManager.getConnection
-					(ConnectionInform.JDBC_URL, ConnectionInform.USERNAME, ConnectionInform.PASSWORD);
+			Context initContext = new InitialContext(); 
+			DataSource ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/mydb"); 
+			con = ds.getConnection(); 
+			
 			String sql = "select count(*) from member";//1행 1열(null / 숫자)
 			pt = con.prepareStatement(sql);
 			ResultSet rs = pt.executeQuery();
@@ -81,14 +83,12 @@ public class MemberDAO {
 
 	public ArrayList<MemberDTO> getMemberList(int page, int memberPerPage) {
 		ArrayList<MemberDTO> list = new ArrayList();
-		Connection con = null;
-		PreparedStatement pt = null;
 		int count = 0;
 		try {
-			Class.forName(ConnectionInform.DRIVER_CLASS);
-			//1.db 연결
-			con = DriverManager.getConnection
-					(ConnectionInform.JDBC_URL, ConnectionInform.USERNAME, ConnectionInform.PASSWORD);
+			Context initContext = new InitialContext(); 
+			DataSource ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/mydb"); 
+			con = ds.getConnection(); 
+			
 			String sql =
 					"SELECT id, insert(pw, 2, char_length(pw)-1, repeat(\"*\",char_length(pw)-1 ) ) as pw, "
 							+ " name, indate FROM MEMBER ORDER BY INDATE LIMIT ?, ?";//1행 1열(null / 숫자)
@@ -117,8 +117,9 @@ public class MemberDAO {
 	}//getMemberList	
 
 	public MemberDTO getMember(String id, String pw) {
-		Connection con = null;
-		PreparedStatement pt = null;
+		//반복으로 인해 지역변수 사용
+		//Connection con = null; 
+		//PreparedStatement pt = null;
 		MemberDTO dto = null;
 
 		try {
@@ -127,8 +128,7 @@ public class MemberDAO {
 			//con = DriverManager.getConnection(ConnectionInform.JDBC_URL, ConnectionInform.USERNAME,
 			//		ConnectionInform.PASSWORD);
 			Context initContext = new InitialContext(); // context.xml 준비
-			Context evContext =( Context )initContext.lookup("java:/comp/java"); //자바 연관 설정
-			DataSource ds = (DataSource)evContext.lookup("jdbc/mydb"); 
+			DataSource ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/mydb"); //자바 연관 설정
 			con = ds.getConnection(); // 톰캣한테  커넥션 pool 빌려온다
 			
 			String sql = "SELECT * FROM member WHERE id =? ";
@@ -169,13 +169,11 @@ public class MemberDAO {
 	}
 
 	public void updateMember(HashMap<String, String> updateMap) {
-		Connection con = null;
-		PreparedStatement pt = null;
 		try {
-			Class.forName(ConnectionInform.DRIVER_CLASS);
-			con = DriverManager.getConnection(ConnectionInform.JDBC_URL, ConnectionInform.USERNAME,
-					ConnectionInform.PASSWORD);
-
+			Context initContext = new InitialContext(); 
+			DataSource ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/mydb"); 
+			con = ds.getConnection(); 
+			
 			StringBuffer sql = new StringBuffer(); //16문자버퍼 +....
 			sql.append("update member set ");
 			Set<String> keys = updateMap.keySet();
@@ -191,7 +189,7 @@ public class MemberDAO {
 			pt.setString(1, updateMap.get("id"));
 			pt.executeUpdate();
 
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException | NamingException e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -205,12 +203,11 @@ public class MemberDAO {
 	} // updateMember
 
 	public void deleteMember(String id) {
-		Connection con = null;
-		PreparedStatement pt = null;
 		try {
-			Class.forName(ConnectionInform.DRIVER_CLASS);
-			con = DriverManager.getConnection(ConnectionInform.JDBC_URL, ConnectionInform.USERNAME,
-					ConnectionInform.PASSWORD);
+			Context initContext = new InitialContext(); 
+			DataSource ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/mydb"); 
+			con = ds.getConnection(); 
+			
 			con.setAutoCommit(false); //수동으로 트렉젝션 설정 변경
 			String sql1 = "insert into deletedmember select * FROM member WHERE id =? ";
 			pt = con.prepareStatement(sql1);
@@ -225,7 +222,7 @@ public class MemberDAO {
 			con.commit();
 			System.out.println("회원탈퇴 처리 완료");
 
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException | NamingException e) {
 			System.out.println("회원 탈퇴 처리 중 문제 발생 - 취소");
 			try {
 				con.rollback();

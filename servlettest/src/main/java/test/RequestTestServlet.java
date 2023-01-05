@@ -3,6 +3,7 @@ package test;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,8 @@ public class RequestTestServlet extends HttpServlet {
 		out.println("<script src='http://localhost:8081/servlettest/request/jquery-3.6.1.min.js'></script>");
 		out.println("<script src='/"+request.getContextPath()+"/jquery-3.6.1.min.js'></script>");
 		// /는 localhost이고 contextpath는 변하니까 
+		
+		
 				
 	}
 
