@@ -20,3 +20,7 @@ Day37 https://www.notion.so/Day37-be9128ddb6534c1f9c4fe01e27b5c34f
 Day124 https://www.notion.so/Day-BE-124_JDBC-CRUD-2-c2f3871ff5034a0481be6374de4b0426 
 
 Day125 https://www.notion.so/Day-BE-125_-3d8b45c0fbb044f6b9a3f0021d5f2f5b
+
+Day126 https://www.notion.so/Day-BE-126_ConnectionPool-API-e57a5ea3abae420eab96b261be346907
+
+Day127 https://www.notion.so/Day-BE-127_JSP-85478883ae194b57b0a3156fc1c4cfdf
