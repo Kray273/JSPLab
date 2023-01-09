@@ -90,7 +90,7 @@ public class MemberDAO {
 			con = ds.getConnection(); 
 			
 			String sql =
-					"SELECT id, insert(pw, 2, char_length(pw)-1, repeat(\"*\",char_length(pw)-1 ) ) as pw, "
+					"SELECT id,address, insert(pw, 2, char_length(pw)-1, repeat(\"*\",char_length(pw)-1 ) ) as pw, "
 							+ " name, indate FROM MEMBER ORDER BY INDATE LIMIT ?, ?";//1행 1열(null / 숫자)
 			pt = con.prepareStatement(sql);
 			pt.setInt(1, (page - 1) * memberPerPage);// page=1,2, 3   0,3, 6인덱스
@@ -100,6 +100,7 @@ public class MemberDAO {
 				MemberDTO dto = new MemberDTO
 						(rs.getString("id"), rs.getString("name"), rs.getString("indate"));
 				dto.setPw(rs.getString("pw"));
+				dto.setAddress(rs.getString("address"));
 				list.add(dto);
 			}
 			//dto 전달 내용을 member 테이블 입력
