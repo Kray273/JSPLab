@@ -24,3 +24,7 @@ Day125 https://www.notion.so/Day-BE-125_-3d8b45c0fbb044f6b9a3f0021d5f2f5b
 Day126 https://www.notion.so/Day-BE-126_ConnectionPool-API-e57a5ea3abae420eab96b261be346907
 
 Day127 https://www.notion.so/Day-BE-127_JSP-85478883ae194b57b0a3156fc1c4cfdf
+
+Day128 https://www.notion.so/Day-BE-128_Action-6a13dcec9807406ebd23b4c487eaf0db
+
+Day129 https://www.notion.so/Day-BE-129_EL-JSTL-Ajax-MVC-d72e499a1e2249efac66c88c10c47c27
